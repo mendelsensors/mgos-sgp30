@@ -68,11 +68,13 @@ bool mgos_sgp30_setup(int DoInit)
 
     LOG(LL_ERROR, ("Ethanol signal: %f", scaled_ethanol_signal / 512.0f));
 
-    if ((err = sgp_iaq_init()) != STATUS_OK) {
-        LOG(LL_ERROR, ("SGP30 iaq init failed"));
-        return false;
+    if (DoInit) {	
+	    if ((err = sgp_iaq_init()) != STATUS_OK) {
+		LOG(LL_ERROR, ("SGP30 iaq init failed"));
+		return false;
+	    }
     }
-
+	
     return true;
 }
 
