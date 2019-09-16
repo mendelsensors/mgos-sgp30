@@ -12,10 +12,12 @@ void sensirion_i2c_init(void) {}
 
 int8_t sensirion_i2c_read(uint8_t address, uint8_t* data, uint16_t count)
 {
-    struct mgos_i2c *i2c = mgos_i2c_get_global();
+    //struct mgos_i2c *i2c = mgos_i2c_get_global();
+		struct mgos_i2c *i2c = mgos_i2c_get_bus(1);
     if (NULL == i2c)
     {
-        LOG(LL_INFO, ("Could not get i2c global instance"));
+        //LOG(LL_INFO, ("Could not get i2c global instance"));
+				LOG(LL_INFO, ("Could not get i2c bus 1 instance"));
         return -1;
     }
     bool ok = mgos_i2c_read(i2c, address, data, count, true /* stop */);
@@ -24,10 +26,12 @@ int8_t sensirion_i2c_read(uint8_t address, uint8_t* data, uint16_t count)
 
 int8_t sensirion_i2c_write(uint8_t address, const uint8_t* data, uint16_t count)
 {
-    struct mgos_i2c *i2c = mgos_i2c_get_global();
+    //struct mgos_i2c *i2c = mgos_i2c_get_global();
+		struct mgos_i2c *i2c = mgos_i2c_get_bus(1);
     if (NULL == i2c)
     {
-        LOG(LL_INFO, ("Could not get i2c global instance"));
+        //LOG(LL_INFO, ("Could not get i2c global instance"));
+				LOG(LL_INFO, ("Could not get i2c bus 1 instance"));
         return -1;
     }
 
