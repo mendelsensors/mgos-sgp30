@@ -8,6 +8,7 @@
 
 const int MGOS_SGP30_ERROR = -128;
 
+/*
 const struct mgos_config_i2c cfg = {
 	.enable= true,
 	.freq= 400,
@@ -15,15 +16,15 @@ const struct mgos_config_i2c cfg = {
 	.sda_gpio= 13,
 	.scl_gpio= 14
 };
-
+*/
 
 int8_t sensirion_i2c_init(void) {
-		struct mgos_i2c *i2c = mgos_i2c_create(&cfg);
+/*		struct mgos_i2c *i2c = mgos_i2c_create(&cfg);
     if (NULL == i2c)
     {
 				LOG(LL_INFO, ("Could not create i2c bus 1 instance"));
         return -1;
-    }
+    }*/
 	return 0;
 }
 
